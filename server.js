@@ -10,7 +10,6 @@ var express = require('express'),
     crypto = require('crypto'),
     fs = require('fs')
 const cookieParser = require('cookie-parser'); // CSRF Cookie parsing
-const bodyParser = require('body-parser'); // CSRF Body parsing
 var csrf = require('csurf');
 // Middlewares
 var csrfProtect = csrf({ cookie: true })
