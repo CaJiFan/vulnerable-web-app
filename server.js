@@ -15,7 +15,7 @@ const cookieParser = require('cookie-parser'); // CSRF Cookie parsing
 var csrf = require('csurf');
 var csrfProtect = csrf({ cookie: true })
 
-
+app.use(cookieParser())
 // const PORT = 8080;
 // const HOST = '0.0.0.0' || 'localhost';
 //This is a global variable that only exists to demostrate stored XSS
@@ -27,7 +27,7 @@ app.use('/static', express.static(__dirname + '/static'))
 
 //Allow form inputs to be parsed easily
 var bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({extended: false}))
 
 //Create cookie-based sessions for each user
 //httponly is set to false so that js can access them
