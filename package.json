@@ -4,13 +4,13 @@
       "description": "websec examples",
       "main": "server.js",
       "dependencies": {
-            "async": "*",
-            "bcrypt": "*",
+            "async": "^3.2.4",
+            "bcrypt": "^5.1.0",
             "body-parser": "*",
-            "express": "*",
-            "express-handlebars": "*",
-            "express-session": "*",
-            "express-subdomain": "*",
-            "request": "*"
+            "express": "^4.18.2",
+            "express-handlebars": "^6.0.6",
+            "express-session": "^1.17.3",
+            "express-subdomain": "^1.0.5",
+            "request": "^2.88.2"
       }
 }
