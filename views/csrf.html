@@ -3,6 +3,7 @@ This form changes your bank account number! Any payments you receive through thi
 <br><br>
 
 <form action="/csrf" method="POST">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
     <input name="account_number" placeholder="Change your account #">
     <input type="submit">
 </form>
