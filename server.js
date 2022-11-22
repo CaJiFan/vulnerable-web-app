@@ -29,7 +29,7 @@ var session = require('express-session')
 
 app.use(session({
     name     : 'sid',
-    secret  : 'supersecretsecur3passw0rd',
+    secret  : process.env.SESSION_SECRET,
     cookie : {
         httpOnly: true,
         secure: true,
