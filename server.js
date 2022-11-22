@@ -31,7 +31,8 @@ app.use(session({
     name     : 'sid',
     secret  : 'supersecretsecur3passw0rd',
     cookie : {
-        httpOnly: false,
+        httpOnly: true,
+        secure: true,
         maxAge: 60000*60*24
     }
 }))
