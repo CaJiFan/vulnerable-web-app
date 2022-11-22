@@ -9,9 +9,10 @@ var express = require('express'),
     subdomain = require('express-subdomain'),
     crypto = require('crypto'),
     fs = require('fs')
+
+    
 const cookieParser = require('cookie-parser'); // CSRF Cookie parsing
 var csrf = require('csurf');
-// Middlewares
 var csrfProtect = csrf({ cookie: true })
 
 
