@@ -9,6 +9,12 @@ var express = require('express'),
     subdomain = require('express-subdomain'),
     crypto = require('crypto'),
     fs = require('fs')
+const cookieParser = require('cookie-parser'); // CSRF Cookie parsing
+const bodyParser = require('body-parser'); // CSRF Body parsing
+var csrf = require('csurf');
+// Middlewares
+var csrfProtect = csrf({ cookie: true })
+
 
 // const PORT = 8080;
 // const HOST = '0.0.0.0' || 'localhost';
@@ -75,13 +81,13 @@ app.post("/stored_xss",function(req,res){
     return res.redirect("/stored_xss")
 })
 
-app.get("/csrf",function(req,res){
+app.get("/csrf", csrfProtect, function(req,res){
     if(typeof req.session.account_number == "undefined")
         req.session.account_number = "1234567"
-    return res.render("csrf",{account_number:req.session.account_number})
+    return res.render("csrf",{account_number:req.session.account_number, csrfToken: req.csrfToken()})
 })
 
-app.post("/csrf",function(req,res){
+app.post("/csrf", csrfProtect, function(req,res){
     req.session.account_number = req.body.account_number
     return res.redirect("/csrf")
 })
